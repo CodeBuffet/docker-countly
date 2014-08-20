@@ -21,7 +21,6 @@ var countlyConfig = {
     api: {
         workers: 0,
         port: 3001,
-        host: "localhost",
         safe: false,
         session_duration_limit: 120,
         max_sockets: 1024,

@@ -18,7 +18,6 @@ var countlyConfig = {
     */
     web: {
         port: 6001,
-        host: "localhost",
         use_intercom: true
     }
 };
