@@ -1,7 +1,7 @@
 #Countly Docker Image
 
 I made my own docker image for Countly because the ones already existing simply didnt meet my needs.
-This image is a lot lighter because it links to another MonogDB instance, so if you already have MongoDB (docker image, see: https://registry.hub.docker.com/_/mongo/) then you dont have to run another DB.
+This image is a lot lighter because it links to another MonogDB instance, so if you already have MongoDB (docker image, see: https://registry.hub.docker.com/_/mongo/) then you dont have to run another DB, and doesnt run behind a server (so you have to install your own if you havent have one already, I provided instructions for NGINX in this tutorial)
 
 This docker image is officialy supported by CodeBuffet. Leave any questions and I try to respond as soon as possible ;)
 
