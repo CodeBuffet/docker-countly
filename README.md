@@ -19,35 +19,35 @@ This docker image is officialy supported by CodeBuffet. Leave any questions and 
 Now we got our countly running, add it to your NGINX server.
 Use a config like this:
 
-- where `YOUR_COUNTLY_SERVER_NAME` is the hostname of your countly server. (like countly.codebuffet.co)
-  
-    server {
-        server_name YOUR_COUNTLY_SERVER_NAME;
-    
-        access_log  off;
-    
-        location = /i {
-            proxy_pass http://127.0.0.1:3001;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Real-IP $remote_addr;
-        }
-    
-        location ^~ /i/ {
-            proxy_pass http://127.0.0.1:3001;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Real-IP $remote_addr;
-        }
-    
-        location = /o {
-            proxy_pass http://127.0.0.1:3001;
-        }
-    
-        location ^~ /o/ {
-            proxy_pass http://127.0.0.1:3001;
-        }
-    
-        location / {
-            proxy_pass http://127.0.0.1:6001;
-            proxy_set_header Host $http_host;
-        }
-    }
+- Where `YOUR_COUNTLY_SERVER_NAME` is the hostname of your countly server (like countly.codebuffet.co).
+
+		server {
+		  server_name YOUR_COUNTLY_SERVER_NAME;
+		
+		  access_log  off;
+		
+		  location = /i {
+		      proxy_pass http://127.0.0.1:3001;
+		      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		      proxy_set_header X-Real-IP $remote_addr;
+		  }
+		
+		  location ^~ /i/ {
+		      proxy_pass http://127.0.0.1:3001;
+		      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		      proxy_set_header X-Real-IP $remote_addr;
+		  }
+		
+		  location = /o {
+		      proxy_pass http://127.0.0.1:3001;
+		  }
+		
+		  location ^~ /o/ {
+		      proxy_pass http://127.0.0.1:3001;
+		  }
+		
+		  location / {
+		      proxy_pass http://127.0.0.1:6001;
+		      proxy_set_header Host $http_host;
+		  }
+		}
