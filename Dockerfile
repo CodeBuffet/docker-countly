@@ -9,9 +9,10 @@ RUN apt-add-repository -y ppa:chris-lea/node.js
 RUN apt-get update
 RUN apt-get -y install nodejs supervisor imagemagick sendmail build-essential unzip wget
 RUN cd /var \
-    && wget http://downloads.sourceforge.net/project/countly/countly-server/countly-server-v14.08.zip \
-    && unzip countly-server-v14.08.zip \
-    && rm countly-server-v14.08.zip
+    && wget https://github.com/Countly/countly-server/archive/15.03.zip \
+    && unzip 15.03.zip \
+    && mv countly-server-15.03 countly \
+    && rm 15.03.zip
 
 RUN cd /var/countly/api \
     && sudo npm install time
