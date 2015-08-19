@@ -19,7 +19,7 @@ RUN cd /opt/countly/api \
 #install grunt & npm modules
 RUN cd /opt/countly \
     && npm install -g grunt-cli --unsafe-perm; npm install
-
+#docker run -d --name countly -p 6001:6001 -p 3001:3001 --link mongodb:MONGO -t peterwilli/countly
 COPY config/api.js /opt/countly/api/config.js
 COPY config/frontend.js /opt/countly/frontend/express/config.js
 COPY config/javascripts.js /opt/countly/frontend/express/public/javascripts/countly/countly.config.js
@@ -27,6 +27,10 @@ COPY config/javascripts.js /opt/countly/frontend/express/public/javascripts/coun
 # Move to baseimage run system
 ADD /scripts/countly-api.sh /etc/service/countly-api/run
 ADD /scripts/countly-dashboard.sh /etc/service/countly-dashboard/run
+
+#Install user
+RUN useradd -r -M -U -d /opt/countly -s /bin/false countly && \
+	echo "countly ALL=(ALL) NOPASSWD: /usr/bin/sv restart countly-api countly-dashboard" > /etc/sudoers.d/countly
 
 # Install plugins
 RUN cp /opt/countly/plugins/plugins.default.json /opt/countly/plugins/plugins.json
