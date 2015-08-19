@@ -25,9 +25,13 @@ COPY config/frontend.js /opt/countly/frontend/express/config.js
 COPY config/javascripts.js /opt/countly/frontend/express/public/javascripts/countly/countly.config.js
 
 # Move to baseimage run system
-RUN cp /opt/countly/bin/commands/docker/countly-api.sh /etc/service/countly-api/run
-RUN cp /opt/countly/bin/commands/docker/countly-dashboard.sh /etc/service/countly-dashboard/run
+ADD /scripts/countly-api.sh /etc/service/countly-api/run
+ADD /scripts/countly-dashboard.sh /etc/service/countly-dashboard/run
 
+# Install plugins
 RUN bash /opt/countly/bin/scripts/countly.install.plugins.sh
+
+# Compile assets
+RUN cd /opt/countly; grunt dist-all
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
