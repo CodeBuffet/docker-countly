@@ -17,9 +17,12 @@ var countlyConfig = {
     mongodb: "localhost:27017/countly?auto_reconnect=true",
     */
     web: {
+        host: "localhost",
         port: 6001,
         use_intercom: true
-    }
+    },
+    path: "",
+    cdn: ""
 };
 
 module.exports = countlyConfig;
