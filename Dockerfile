@@ -29,6 +29,10 @@ ADD /scripts/countly-api.sh /etc/service/countly-api/run
 ADD /scripts/countly-dashboard.sh /etc/service/countly-dashboard/run
 
 # Install plugins
+RUN if [ ! -f /opt/countly/plugins/plugins.json ]; then \
+    	cp /opt/countly/plugins/plugins.default.json /opt/countly/plugins/plugins.json \
+    fi
+    
 RUN bash /opt/countly/bin/scripts/countly.install.plugins.sh
 
 # Compile assets
