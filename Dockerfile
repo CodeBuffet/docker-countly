@@ -28,6 +28,6 @@ COPY config/javascripts.js /opt/countly/frontend/express/public/javascripts/coun
 RUN cp /opt/countly/bin/commands/docker/countly-api.sh /etc/service/countly-api/run
 RUN cp /opt/countly/bin/commands/docker/countly-dashboard.sh /etc/service/countly-dashboard/run
 
-bash $DIR/scripts/countly.install.plugins.sh
+RUN bash /opt/countly/bin/scripts/countly.install.plugins.sh
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
