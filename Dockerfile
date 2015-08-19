@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM phusion/baseimage:0.9.16
 MAINTAINER peter@codebuffet.co
 
 EXPOSE 3001 6001
