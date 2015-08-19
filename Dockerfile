@@ -19,7 +19,7 @@ RUN cd /opt/countly/api \
 #install grunt & npm modules
 RUN cd /opt/countly \
     && npm install -g grunt-cli --unsafe-perm; npm install
-#docker run -d --name countly -p 6001:6001 -p 3001:3001 --link mongodb:MONGO -t peterwilli/countly
+
 COPY config/api.js /opt/countly/api/config.js
 COPY config/frontend.js /opt/countly/frontend/express/config.js
 COPY config/javascripts.js /opt/countly/frontend/express/public/javascripts/countly/countly.config.js
