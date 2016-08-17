@@ -4,7 +4,7 @@ MAINTAINER peter@codebuffet.co
 EXPOSE 3001 6001
 
 RUN apt-get update
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update
 RUN apt-get -y install nodejs supervisor imagemagick sendmail build-essential unzip wget
 RUN cd /opt \
@@ -13,7 +13,7 @@ RUN cd /opt \
     && rm countly-community-edition-v16.06.zip
 
 RUN cd /opt/countly/api \
-    && sudo npm install time
+    && npm install time
 
 #install grunt & npm modules
 RUN cd /opt/countly \
