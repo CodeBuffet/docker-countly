@@ -8,10 +8,9 @@ RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
 RUN apt-get update
 RUN apt-get -y install nodejs supervisor imagemagick sendmail build-essential unzip wget
 RUN cd /opt \
-    && wget https://github.com/Countly/countly-server/archive/15.06.zip \
-    && unzip 15.06.zip \
-    && mv countly-server-15.06 countly \
-    && rm 15.06.zip
+    && wget https://github.com/Countly/countly-server/releases/download/16.06/countly-community-edition-v16.06.zip \
+    && unzip countly-community-edition-v16.06.zip \
+    && rm countly-community-edition-v16.06.zip
 
 RUN cd /opt/countly/api \
     && sudo npm install time
