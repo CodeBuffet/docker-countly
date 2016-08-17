@@ -6,7 +6,7 @@ EXPOSE 3001 6001
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get update
-RUN apt-get -y install nodejs supervisor imagemagick sendmail build-essential unzip wget
+RUN apt-get -y install nodejs supervisor imagemagick sendmail build-essential unzip wget libkrb5-dev
 RUN cd /opt \
     && wget https://github.com/Countly/countly-server/releases/download/16.06/countly-community-edition-v16.06.zip \
     && unzip countly-community-edition-v16.06.zip \
