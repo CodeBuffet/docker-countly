@@ -4,7 +4,7 @@ MAINTAINER peter@codebuffet.co
 EXPOSE 3001 6001
 
 RUN apt-get update
-RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
+RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
 RUN apt-get update
 RUN apt-get -y install nodejs supervisor imagemagick sendmail build-essential unzip wget
 RUN cd /opt \
